@@ -163,7 +163,7 @@ nav {
 }
 
 .logo img {
-    height: 32px;
+    height: 64px;
     margin-right: 0.75rem;
 }
 
@@ -1015,6 +1015,10 @@ footer {
     
     .footer-legal {
         justify-content: center;
+    }
+    
+    .logo img {
+        height: 48px;
     }
 }
 
