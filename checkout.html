@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BitForge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/bitforge-logo.svg" alt="BitForge Logo">
+                <span>BitForge</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="https://docs.bitforge.ai" target="_blank">Docs</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <h1>Complete Your Purchase</h1>
+            <p>You're just a few steps away from revolutionizing your hardware design workflow</p>
+        </div>
+
+        <div class="checkout-steps">
+            <div class="checkout-step">
+                <div class="step-number active">1</div>
+                <p>Account Details</p>
+            </div>
+            <div class="checkout-step">
+                <div class="step-number">2</div>
+                <p>Payment Information</p>
+            </div>
+            <div class="checkout-step">
+                <div class="step-number">3</div>
+                <p>Confirmation</p>
+            </div>
+        </div>
+
+        <form class="checkout-form">
+            <h3>Account Information</h3>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" class="form-control" required>
+            </div>
+
+            <h3>Plan Selection</h3>
+            <div class="checkout-summary">
+                <div class="summary-item">
+                    <span>BitForge Professional Plan</span>
+                    <span>$49.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Billing</span>
+                    <span>Monthly</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Total</span>
+                    <span>$49.00</span>
+                </div>
+            </div>
+
+            <h3>Payment Method</h3>
+            <input type="hidden" name="payment_method" value="credit_card">
+            <div class="payment-methods">
+                <div class="payment-method selected" data-method="credit_card">
+                    <img src="assets/credit-card.svg" alt="Credit Card">
+                    <span>Credit Card</span>
+                </div>
+                <div class="payment-method" data-method="paypal">
+                    <img src="assets/paypal.svg" alt="PayPal">
+                    <span>PayPal</span>
+                </div>
+                <div class="payment-method" data-method="apple_pay">
+                    <img src="assets/apple-pay.svg" alt="Apple Pay">
+                    <span>Apple Pay</span>
+                </div>
+            </div>
+
+            <div id="credit-card-form">
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" required>
+                </div>
+
+                <div class="form-row" style="display: flex; gap: 1rem;">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="expiry">Expiration Date</label>
+                        <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="cvc">CVC</label>
+                        <input type="text" id="cvc" class="form-control" placeholder="123" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name on Card</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="checkout-actions">
+                <a href="index.html" class="btn secondary-btn">Cancel</a>
+                <button type="submit" class="btn primary-btn">Complete Purchase</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2023 BitForge, Inc. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
