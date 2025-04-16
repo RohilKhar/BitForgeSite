@@ -95,7 +95,6 @@
             <form id="waitlist-form">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
-                <input type="text" name="company" placeholder="Company (Optional)">
                 <input type="hidden" name="plan" id="plan-field" value="">
                 <button type="submit">Request Demo</button>
             </form>
@@ -149,7 +148,6 @@
             const data = {
                 name: form.name.value,
                 email: form.email.value,
-                company: form.company.value || "Not specified",
                 plan: form.plan.value || "Not specified"
             };
 
