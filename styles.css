@@ -255,8 +255,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 6rem;
     flex-wrap: wrap;
-    gap: 3rem;
 }
 
 .partner-logos img {
@@ -1028,7 +1028,7 @@ footer {
     }
     
     .partner-logos {
-        gap: 1.5rem;
+        gap: 3rem;
     }
     
     .partner-logos img {
@@ -1037,5 +1037,119 @@ footer {
     
     .newsletter-form {
         flex-direction: column;
+    }
+}
+
+/* Backed by Section */
+#backed-by {
+    padding: 3rem 0;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+#backed-by h2 {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    flex-wrap: wrap;
+}
+
+.partner-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.partner-logo img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.partner-logo img:hover {
+    opacity: 1;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-details h4 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.author-details p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Add to your existing styles.css file - after the about section styles */
+
+.founders-heading {
+    text-align: center;
+    margin: 3rem 0 2rem;
+}
+
+.founders-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.founder-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+}
+
+.founder-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: 3px solid var(--primary-light);
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-info {
+    text-align: center;
+}
+
+.founder-info h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.founder-info p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .founders-grid {
+        gap: 2rem;
+    }
+    
+    .founder-image {
+        width: 180px;
+        height: 180px;
     }
 }

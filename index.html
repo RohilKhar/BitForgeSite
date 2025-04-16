@@ -19,11 +19,11 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#about">About</a>
                 <a href="#faq">FAQ</a>
-                <a href="https://docs.bitforge.ai" target="_blank">Docs</a>
+                <a href="docs-coming-soon.html">Docs</a>
             </div>
             <div class="nav-buttons">
-                <a href="#pricing" class="btn primary-btn">Download</a>
-                <a href="login.html" class="btn secondary-btn">Sign In</a>
+                <a href="index.html" class="btn primary-btn">Request A Demo</a>
+                <a href="sign-in.html" class="btn secondary-btn">Sign In</a>
             </div>
         </nav>
     </header>
@@ -34,7 +34,7 @@
                 <h1>AI-Powered Hardware Design Automation</h1>
                 <p>Generate, debug, and optimize HDL code using BitForge's advanced AI. Designed specifically for hardware engineers, by hardware engineers.</p>
                 <div class="hero-buttons">
-                    <a href="#pricing" class="btn primary-btn large">Download Extension</a>
+                    <a href="index.html" class="btn primary-btn large">Request A Demo</a>
                     <a href="#demo" class="btn secondary-btn large">Watch Demo</a>
                 </div>
             </div>
@@ -45,14 +45,19 @@
         </div>
     </section>
 
-    <section id="partners">
+    <section id="backed-by">
         <div class="container">
-            <p>Backed by</p>
+            <h2>Backed by</h2>
             <div class="partner-logos">
-                <img src="assets/microsoft.svg" alt="Microsoft for Startups">
-                <img src="assets/azure.svg" alt="Azure AI Foundry">
-                <img src="assets/partner3.svg" alt="Partner">
-                <img src="assets/partner4.svg" alt="Partner">
+                <div class="partner-logo">
+                    <img src="assets/Microsoft.png" alt="Microsoft for Startups">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/PAD-13-SocialMedia-150x150.png" alt="Skydeck Pad-13">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/skydeckpage.png" alt="Skydeck">
+                </div>
             </div>
         </div>
     </section>
@@ -103,6 +108,13 @@
                     <h3>Seamless VSCode Integration</h3>
                     <p>Work within your existing VSCode environment with powerful tools that enhance your hardware development workflow.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Code Onboarding & Annotation</h3>
+                    <p>Automatically understand and navigate new hardware codebases with AI-powered annotations that explain complex modules and design patterns.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -122,8 +134,8 @@
 
     <section id="pricing">
         <div class="container">
-            <h2>Choose Your Plan</h2>
-            <p class="section-subtitle">Select the right plan for your hardware development needs</p>
+            <h2>Potential pricing: Choose Your Plan</h2>
+            <p class="section-subtitle">Select the plan that best fits your needs</p>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
@@ -133,47 +145,37 @@
                             <span class="price">$0</span>
                             <span class="period">/month</span>
                         </div>
-                        <p>Try before you commit</p>
+                        <p>Experience BitForge risk-free</p>
                     </div>
                     <div class="pricing-features">
                         <ul>
                             <li><i class="fas fa-check"></i> Pro two-week trial</li>
-                            <li><i class="fas fa-check"></i> 2,000 code completions per month</li>
-                            <li><i class="fas fa-check"></i> 50 slow premium requests</li>
-                            <li><i class="fas fa-check"></i> Basic HDL generation</li>
-                            <li><i class="fas fa-check"></i> Verilog visualization</li>
-                            <li class="disabled"><i class="fas fa-times"></i> Advanced features</li>
-                            <li class="disabled"><i class="fas fa-times"></i> Premium support</li>
+                            <li><i class="fas fa-check"></i> 50 code completions and testbench generations</li>
+                            <li><i class="fas fa-check"></i> Unlimited Visualizations</li>
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="download.html?plan=free" class="btn primary-btn full-width">Download Free</a>
+                        <a href="request-demo.html?plan=free" class="btn primary-btn full-width">Start Free Trial</a>
                     </div>
                 </div>
                 
                 <div class="pricing-card">
-                    <div class="academic-badge"></div>
                     <div class="pricing-header">
-                        <h3>Academic</h3>
+                        <h3>Student</h3>
                         <div class="pricing-amount">
-                            <span class="price">$8</span>
+                            <span class="price">$9</span>
                             <span class="period">/month</span>
                         </div>
-                        <p>For students, educators, and institutions</p>
+                        <p>For students and educators</p>
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> 7,500 code completions per month</li>
-                            <li><i class="fas fa-check"></i> 200 fast premium requests per month</li>
-                            <li><i class="fas fa-check"></i> Unlimited slow premium requests</li>
-                            <li><i class="fas fa-check"></i> Advanced HDL generation</li>
-                            <li><i class="fas fa-check"></i> Automated testbench creation</li>
-                            <li><i class="fas fa-check"></i> Classroom usage materials</li>
-                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> All Pro plan features but reduced pricing</li>
+                            <li><i class="fas fa-check"></i> Required .edu verification with university to work</li>
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="checkout.html?plan=academic" class="btn primary-btn full-width">Get Academic License</a>
+                        <a href="request-demo.html?plan=student" class="btn primary-btn full-width">Request Academic Demo</a>
                     </div>
                 </div>
                 
@@ -189,67 +191,35 @@
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> Unlimited code completions</li>
-                            <li><i class="fas fa-check"></i> 500 fast premium requests per month</li>
-                            <li><i class="fas fa-check"></i> Unlimited slow premium requests</li>
-                            <li><i class="fas fa-check"></i> Advanced HDL generation</li>
-                            <li><i class="fas fa-check"></i> Automated testbench creation</li>
-                            <li><i class="fas fa-check"></i> AI debugging assistant</li>
-                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> 500 code and testbench generations/month</li>
+                            <li><i class="fas fa-check"></i> Unlimited Visualizations</li>
+                            <li><i class="fas fa-check"></i> Forge+Debug Feature</li>
+                            <li><i class="fas fa-check"></i> 30 code commentary generations/month</li>
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="checkout.html?plan=pro" class="btn primary-btn full-width">Get Started</a>
+                        <a href="request-demo.html?plan=pro" class="btn primary-btn full-width">Request A Demo</a>
                     </div>
                 </div>
                 
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Small Business</h3>
+                        <h3>Large Enterprise</h3>
                         <div class="pricing-amount">
-                            <span class="price">$60</span>
-                            <span class="period">/month/user</span>
+                            <span class="price">Custom</span>
                         </div>
-                        <p>For teams and small organizations</p>
+                        <p>For companies and teams</p>
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i class="fas fa-check"></i> All Pro Plan features</li>
                             <li><i class="fas fa-check"></i> Enforce privacy mode organization-wide</li>
                             <li><i class="fas fa-check"></i> Centralized team billing</li>
                             <li><i class="fas fa-check"></i> Admin dashboard with usage statistics</li>
                             <li><i class="fas fa-check"></i> SAML/OIDC Single Sign-On (SSO)</li>
-                            <li><i class="fas fa-check"></i> Team collaboration features</li>
-                            <li><i class="fas fa-check"></i> Priority support</li>
                         </ul>
                     </div>
                     <div class="pricing-footer">
-                        <a href="checkout.html?plan=business" class="btn primary-btn full-width">Get Started</a>
-                    </div>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Large Enterprise</h3>
-                        <div class="pricing-amount">
-                            <span class="price">Custom</span>
-                            <span class="period">pricing</span>
-                        </div>
-                        <p>For organizations with specialized needs</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> All Small Business features</li>
-                            <li><i class="fas fa-check"></i> Custom Agent for customer need</li>
-                            <li><i class="fas fa-check"></i> Localized Agents for customer needs</li>
-                            <li><i class="fas fa-check"></i> Advanced synthesis optimization</li>
-                            <li><i class="fas fa-check"></i> Custom LLM fine-tuning</li>
-                            <li><i class="fas fa-check"></i> On-premises deployment options</li>
-                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="contact.html?interest=enterprise" class="btn primary-btn full-width">Contact Sales</a>
+                        <a href="request-demo.html?plan=enterprise" class="btn primary-btn full-width">Contact Sales</a>
                     </div>
                 </div>
             </div>
@@ -262,47 +232,27 @@
             <div class="testimonial-slider">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"BitForge has revolutionized our hardware design process. We've cut development time by 60% and can iterate much faster than before."</p>
+                        <p>"When we bring in new hardware engineers, it takes around six months before they're fully productive. Between ramping up on our internal design flows, learning the verification environment, and getting familiar with all the legacy testbenches and toolchains, it's a huge lift. Even experienced engineers need months just to navigate the ecosystem. I have to setup specific instructions the first couple of months."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="assets/testimonial1.jpg" alt="Testimonial Author">
-                        <div>
-                            <h4>Sarah Chen</h4>
-                            <p>Lead Hardware Engineer, IoT Solutions Inc.</p>
+                        <div class="author-details">
+                            <h4>Munir</h4>
+                            <p>Northrop Grumman Senior Hardware Engineer</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"As a professor teaching FPGA design, BitForge helps my students grasp complex hardware concepts more easily. The visualization tools are outstanding."</p>
+                        <p>"Entry level engineers rely heavily on onboarding documentation and tooling to become productive quickly it's a game-changer when that knowledge is embedded directly into the workflow. What makes BitForge especially compelling is that it doesn't ask teams to replace their existing EDA stack it integrates seamlessly, adding intelligence without disruption. That kind of plug-and-play value is exactly what modern engineering teams need."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="assets/testimonial2.jpg" alt="Testimonial Author">
-                        <div>
-                            <h4>Dr. Michael Rodriguez</h4>
-                            <p>Professor of Electrical Engineering, MIT</p>
+                        <div class="author-details">
+                            <h4>Naeem Zafar</h4>
+                            <p>Founder of Silicon Design Systems (acquired by Cadence)</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The debugging assistant is like having a senior hardware engineer looking over your shoulder. It catches issues I might have spent days tracking down."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="assets/testimonial3.jpg" alt="Testimonial Author">
-                        <div>
-                            <h4>James Wilson</h4>
-                            <p>FPGA Design Engineer, Advanced Systems</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
             </div>
         </div>
     </section>
@@ -310,14 +260,33 @@
     <section id="about">
         <div class="container">
             <h2>About BitForge</h2>
+            
             <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/founders.jpg" alt="BitForge Founders">
-                </div>
                 <div class="about-text">
-                    <p>BitForge is an AI-driven hardware design automation startup co-founded by Rohil Khare (ex-Amazon) and Tamzid Razzaque (ex-Apple). Our mission is to revolutionize hardware development by automating HDL code generation, debugging, synthesis, and verification using advanced AI.</p>
-                    <p>With decades of combined experience in hardware design at leading tech companies, our team understands the challenges of hardware development firsthand. We're backed by Microsoft for Startups and use Azure AI Foundry for scalable cloud-based inference.</p>
-                    <p>Our vision is to make hardware design more accessible, efficient, and iterative by leveraging the latest advancements in artificial intelligence and machine learning.</p>
+                    <p>BitForge was founded by hardware engineers who experienced firsthand the challenges of designing and debugging complex hardware systems. Our mission is to bring the power of AI to hardware engineering workflows, making engineers more productive and designs more reliable.</p>
+                </div>
+            </div>
+            
+            <h3 class="founders-heading">Our Founders</h3>
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="assets/Rohil.png" alt="Rohil Khare">
+                    </div>
+                    <div class="founder-info">
+                        <h4>Rohil Khare</h4>
+                        <p>Co-Founder</p>
+                    </div>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-image">
+                        <img src="assets/Tamzid.png" alt="Tamzid Razzaque">
+                    </div>
+                    <div class="founder-info">
+                        <h4>Tamzid Razzaque</h4>
+                        <p>Co-Founder</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -333,7 +302,7 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>BitForge complements traditional EDA tools by automating many of the manual coding and debugging tasks. We integrate with existing workflows while providing AI-powered capabilities that traditional tools lack. Our extension works alongside tools like Cadence, Vivado, and others to enhance your productivity.</p>
+                        <p>BitForge isn't here to replace your EDA tools — it supercharges them. Unlike traditional EDA suites that rely heavily on manual workflows, BitForge uses AI to generate, annotate, debug, and test HDL code faster and more accurately. It seamlessly integrates with your existing toolchain to accelerate development without disrupting your current setup.</p>
                     </div>
                 </div>
                 
@@ -343,7 +312,7 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>BitForge currently supports Verilog and VHDL, with plans to add SystemVerilog and other HDLs in the near future. Our AI models are trained on extensive code repositories and understand industry-standard coding practices.</p>
+                        <p>We currently support Verilog, SystemVerilog, and VHDL. Support for emerging DSLs and high-level synthesis tools is on our roadmap, and we're actively expanding language compatibility based on user needs.</p>
                     </div>
                 </div>
                 
@@ -353,7 +322,7 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes. We take security seriously. Your code never leaves your machine unless you explicitly choose cloud-based features. For Enterprise customers, we offer fully isolated deployments and private LLM instances to ensure maximum data security and IP protection.</p>
+                        <p>Yes — security and privacy are core to our platform. Your code never leaves your private workspace unless explicitly shared. We offer end-to-end encryption, and enterprise users can deploy BitForge on-prem or in a VPC for full control.</p>
                     </div>
                 </div>
                 
@@ -363,7 +332,7 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. Our AI has been trained on millions of lines of HDL code, including complex designs from various domains. While the complexity ceiling continues to increase as we improve our models, BitForge can currently handle designs ranging from simple controllers to complex processors and specialized accelerators.</p>
+                        <p>Absolutely. BitForge is built to scale — whether you're prototyping a simple FSM or designing a complex pipelined SoC. Our AI assistants understand structural hierarchy, pipelining, parameterization, and reuse patterns in large codebases.</p>
                     </div>
                 </div>
                 
@@ -373,7 +342,7 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Some features like code visualization work offline, but our AI-powered capabilities require an internet connection to access our cloud inference servers. Enterprise customers have the option for on-premises deployment for sensitive projects.</p>
+                        <p>BitForge is cloud-native, but we offer offline support for enterprise users. While our core AI tools run in the cloud for real-time assistance and updates, on-prem deployment options are available for teams with strict air-gapped environments.</p>
                     </div>
                 </div>
                 
@@ -383,7 +352,7 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>We release updates on a regular cadence, typically every 2-4 weeks for minor improvements and bug fixes. Major feature releases occur quarterly. Our AI models are continuously trained and improved based on user feedback and new data.</p>
+                        <p>BitForge is updated regularly, and all updates are pushed directly through the VSCode extension. No manual setup required — you'll always be working with the latest features and improvements seamlessly within your existing workflow.</p>
                     </div>
                 </div>
             </div>
@@ -394,7 +363,7 @@
         <div class="container">
             <h2>Ready to Revolutionize Your Hardware Design Workflow?</h2>
             <p>Join thousands of hardware engineers who are leveraging AI to design better hardware, faster.</p>
-            <a href="#pricing" class="btn primary-btn large">Get Started Today</a>
+            <a href="request-demo.html" class="btn primary-btn large">Request A Demo Today</a>
         </div>
     </section>
 
@@ -417,55 +386,61 @@
                 <div class="footer-links">
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="https://docs.bitforge.ai" target="_blank">Documentation</a></li>
-                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="index.html">Features</a></li>
+                        <li><a href="index.html">Pricing</a></li>
+                        <li><a href="docs-coming-soon.html">Documentation</a></li>
+                        <li><a href="index.html">Roadmap</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="index.html">Careers</a></li>
+                        <li><a href="index.html">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="tutorials.html">Tutorials</a></li>
-                        <li><a href="community.html">Community</a></li>
-                        <li><a href="support.html">Support</a></li>
-                        <li><a href="https://github.com/bitforge/examples" target="_blank">Examples</a></li>
+                        <li><a href="index.html">Tutorials</a></li>
+                        <li><a href="index.html">Community</a></li>
+                        <li><a href="index.html">Support</a></li>
+                        <li><a href="index.html">Examples</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
-                    <p>Subscribe to our newsletter for the latest updates and features.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn primary-btn">Subscribe</button>
-                    </form>
+                    <p style="color: #666; font-style: italic;">Newsletter subscriptions temporarily unavailable.</p>
+                    <div class="newsletter-form" style="opacity: 0.5; pointer-events: none;">
+                        <form>
+                            <input type="email" placeholder="Your email address" disabled>
+                            <button type="submit" disabled>Subscribe</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2023 BitForge, Inc. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="cookies.html">Cookie Policy</a>
+                    <a href="index.html">Privacy Policy</a>
+                    <a href="index.html">Terms of Service</a>
+                    <a href="index.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        console.log('Script is running');
+        // Rest of your FAQ code
+    </script>
 </body>
 </html>
 
