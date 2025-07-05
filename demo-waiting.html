@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Access - SigmanticAI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+        
+        // Initialize Firebase
+        const app = initializeApp({
+            apiKey: "AIzaSyDmqzdqKK69W5VfmMoqE9oT6HoyVK9Fol0",
+            authDomain: "sigmanticai.firebaseapp.com",
+            projectId: "sigmanticai",
+            storageBucket: "sigmanticai.appspot.com",
+            messagingSenderId: "999182859252",
+            appId: "1:999182859252:web:6608b11cc8dc90ad0c97a1"
+        });
+        
+        const auth = getAuth(app);
+        
+        // Make Firebase available globally
+        window.firebaseApp = app;
+        window.auth = auth;
+        window.onAuthStateChanged = onAuthStateChanged;
+        window.signOut = signOut;
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/bitforge-logo.png" alt="SigmanticAI Logo">
+                <span>SigmanticAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#about">About</a>
+            </div>
+            <div class="nav-buttons">
+                <button id="logoutBtn" class="secondary-btn">Sign Out</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Waiting Section -->
+    <section class="waiting-section">
+        <div class="container">
+            <div class="waiting-content">
+                <div class="waiting-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                
+                <h1>Thank You for Your Interest!</h1>
+                
+                <div class="waiting-message">
+                    <p>We've received your demo request and our team has been notified.</p>
+                    <p>A representative from SigmanticAI will reach out to you at <strong id="userEmail"></strong> within the next 24 hours to schedule your personalized demo.</p>
+                </div>
+
+                <div class="waiting-steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Account Created</h3>
+                            <p>Your account has been successfully created and verified.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Team Notified</h3>
+                            <p>Our team has been notified about your demo request.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step pending">
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>Demo Scheduled</h3>
+                            <p>We'll contact you to schedule your personalized demo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="waiting-actions">
+                    <a href="index.html" class="primary-btn">Return to Home</a>
+                    <a href="index.html#about" class="secondary-btn">Learn More About Us</a>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Questions? Contact us directly:</h3>
+                    <div class="contact-details">
+                        <a href="mailto:rohilkhare@sigmanticai.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            rohilkhare@sigmanticai.com
+                        </a>
+                        <a href="mailto:tamzidrazzaque@sigmanticai.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            tamzidrazzaque@sigmanticai.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Wait for Firebase to be initialized
+        window.addEventListener('load', () => {
+            // Check authentication state
+            window.onAuthStateChanged(window.auth, (user) => {
+                if (!user) {
+                    // Redirect to login if not authenticated
+                    window.location.href = 'login.html';
+                } else {
+                    // Display user email
+                    document.getElementById('userEmail').textContent = user.email;
+                }
+            });
+
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', async () => {
+                try {
+                    await window.signOut(window.auth);
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    console.error('Error signing out:', error);
+                }
+            });
+
+            // Add animation to steps
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html> 

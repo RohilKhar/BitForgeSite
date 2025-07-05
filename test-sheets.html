@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Google Sheets Integration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #4338ca;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Google Sheets Integration</h1>
+    <p>This page tests the Google Apps Script endpoint to verify it's working correctly.</p>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" value="TestUser123" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="test@example.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" value="testpass123" required>
+        </div>
+        
+        <button type="submit">Test Google Sheets Integration</button>
+    </form>
+    
+    <div id="result" class="result"></div>
+    
+    <h2>Console Output</h2>
+    <p>Check the browser console (F12) for detailed logs.</p>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'none';
+            
+            console.log('🧪 Testing Google Sheets integration...');
+            console.log('Data to send:', { username, email, password });
+            
+            try {
+                // Method 1: JSON
+                console.log('📊 Method 1: Sending JSON data...');
+                const jsonData = {
+                    username: username,
+                    email: email,
+                    password: password
+                };
+                
+                const jsonResponse = await fetch('https://script.google.com/macros/s/AKfycbzAVVfXzrmdGVs6Hszfixr0lCQXJlP2nQ9EyPwt4r8wW-5na0uNmDzO820n0EUqoYk/exec', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(jsonData),
+                    mode: 'no-cors'
+                });
+                
+                console.log('✅ JSON method completed');
+                console.log('Response:', jsonResponse);
+                
+                // Method 2: Form Data
+                console.log('📊 Method 2: Sending Form data...');
+                const formData = new FormData();
+                formData.append('username', username);
+                formData.append('email', email);
+                formData.append('password', password);
+                
+                const formResponse = await fetch('https://script.google.com/macros/s/AKfycbzAVVfXzrmdGVs6Hszfixr0lCQXJlP2nQ9EyPwt4r8wW-5na0uNmDzO820n0EUqoYk/exec', {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                });
+                
+                console.log('✅ Form data method completed');
+                console.log('Response:', formResponse);
+                
+                // Method 3: URL encoded
+                console.log('📊 Method 3: Sending URL encoded data...');
+                const urlParams = new URLSearchParams();
+                urlParams.append('username', username);
+                urlParams.append('email', email);
+                urlParams.append('password', password);
+                
+                const urlResponse = await fetch('https://script.google.com/macros/s/AKfycbzAVVfXzrmdGVs6Hszfixr0lCQXJlP2nQ9EyPwt4r8wW-5na0uNmDzO820n0EUqoYk/exec', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: urlParams.toString(),
+                    mode: 'no-cors'
+                });
+                
+                console.log('✅ URL encoded method completed');
+                console.log('Response:', urlResponse);
+                
+                resultDiv.className = 'result success';
+                resultDiv.textContent = 'Test completed! Check console for details and your Google Sheet for new rows.';
+                resultDiv.style.display = 'block';
+                
+            } catch (error) {
+                console.error('❌ Error during test:', error);
+                console.error('Error details:', {
+                    name: error.name,
+                    message: error.message,
+                    stack: error.stack
+                });
+                
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `Error: ${error.message}. Check console for details.`;
+                resultDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html> 

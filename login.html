@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SigmanticAI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+        import { 
+            getAuth, 
+            createUserWithEmailAndPassword, 
+            signInWithEmailAndPassword, 
+            onAuthStateChanged,
+            updateProfile 
+        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+        import { 
+            getFirestore, 
+            doc, 
+            setDoc, 
+            collection, 
+            addDoc, 
+            serverTimestamp 
+        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+        
+        // Initialize Firebase
+        const app = initializeApp({
+            apiKey: "AIzaSyDmqzdqKK69W5VfmMoqE9oT6HoyVK9Fol0",
+            authDomain: "sigmanticai.firebaseapp.com",
+            projectId: "sigmanticai",
+            storageBucket: "sigmanticai.appspot.com",
+            messagingSenderId: "999182859252",
+            appId: "1:999182859252:web:6608b11cc8dc90ad0c97a1"
+        });
+        
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        // Make Firebase available globally
+        window.firebaseApp = app;
+        window.auth = auth;
+        window.db = db;
+        
+        // Export auth functions
+        window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+        window.onAuthStateChanged = onAuthStateChanged;
+        window.updateProfile = updateProfile;
+        window.doc = doc;
+        window.setDoc = setDoc;
+        window.collection = collection;
+        window.addDoc = addDoc;
+        window.serverTimestamp = serverTimestamp;
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="assets/bitforge-logo.png" alt="SigmanticAI Logo">
+                <span>SigmanticAI</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#about">About</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="index.html" class="secondary-btn">Back to Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Welcome to SigmanticAI</h1>
+                    <p>Sign in to request your demo</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button class="tab-btn active" id="signInTab">Sign In</button>
+                    <button class="tab-btn" id="signUpTab">Sign Up</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <form id="signInForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signInEmail">Email</label>
+                        <input type="email" id="signInEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signInPassword">Password</label>
+                        <input type="password" id="signInPassword" required>
+                    </div>
+                    <button type="submit" class="auth-btn primary-btn" id="signInBtn">
+                        Sign In
+                    </button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signUpForm" class="auth-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="signUpUsername">Username</label>
+                        <input type="text" id="signUpUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpEmail">Email</label>
+                        <input type="email" id="signUpEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpPassword">Password</label>
+                        <input type="password" id="signUpPassword" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="signUpPasswordConfirm">Confirm Password</label>
+                        <input type="password" id="signUpPasswordConfirm" required minlength="6">
+                    </div>
+                    <button type="submit" class="auth-btn primary-btn" id="signUpBtn">
+                        Create Account & Request Demo
+                    </button>
+                </form>
+
+                <!-- Messages -->
+                <div class="message-container" id="messageContainer"></div>
+
+                <div class="auth-footer">
+                    <p>By signing up, you agree to our Terms of Service and Privacy Policy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Wait for Firebase to be initialized
+        window.addEventListener('load', () => {
+            // Check if user is already logged in
+            window.onAuthStateChanged(window.auth, (user) => {
+                if (user) {
+                    // User is signed in, redirect to waiting page
+                    window.location.href = 'demo-waiting.html';
+                }
+            });
+
+            // Tab switching
+            const signInTab = document.getElementById('signInTab');
+            const signUpTab = document.getElementById('signUpTab');
+            const signInForm = document.getElementById('signInForm');
+            const signUpForm = document.getElementById('signUpForm');
+
+            signInTab.addEventListener('click', () => {
+                signInTab.classList.add('active');
+                signUpTab.classList.remove('active');
+                signInForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+                clearMessages();
+            });
+
+            signUpTab.addEventListener('click', () => {
+                signUpTab.classList.add('active');
+                signInTab.classList.remove('active');
+                signUpForm.style.display = 'block';
+                signInForm.style.display = 'none';
+                clearMessages();
+            });
+
+            // Sign In Form
+            signInForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('signInEmail').value;
+                const password = document.getElementById('signInPassword').value;
+                const signInBtn = document.getElementById('signInBtn');
+                
+                signInBtn.disabled = true;
+                signInBtn.textContent = 'Signing in...';
+                clearMessages();
+                
+                try {
+                    const userCredential = await window.signInWithEmailAndPassword(window.auth, email, password);
+                    const user = userCredential.user;
+                    
+                    // Update last login
+                    await window.setDoc(window.doc(window.db, 'users', user.uid), {
+                        lastLogin: window.serverTimestamp()
+                    }, { merge: true });
+                    
+                    showMessage('Sign in successful! Redirecting...', 'success');
+                    
+                    // Redirect to waiting page
+                    setTimeout(() => {
+                        window.location.href = 'demo-waiting.html';
+                    }, 1000);
+                    
+                } catch (error) {
+                    console.error('Sign in error:', error);
+                    showMessage(getErrorMessage(error.code), 'error');
+                    signInBtn.disabled = false;
+                    signInBtn.textContent = 'Sign In';
+                }
+            });
+
+            // Sign Up Form
+            signUpForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const username = document.getElementById('signUpUsername').value;
+                const email = document.getElementById('signUpEmail').value;
+                const password = document.getElementById('signUpPassword').value;
+                const passwordConfirm = document.getElementById('signUpPasswordConfirm').value;
+                const signUpBtn = document.getElementById('signUpBtn');
+                
+                // Validate passwords match
+                if (password !== passwordConfirm) {
+                    showMessage('Passwords do not match', 'error');
+                    return;
+                }
+                
+                signUpBtn.disabled = true;
+                signUpBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                clearMessages();
+                
+                // Show loading message
+                showMessage('Creating your account...', 'info');
+                
+                // 🎯 STEP 1: Send data to Google Sheets FIRST (before Firebase)
+                console.log('🚀 Step 1: Sending data to Google Sheets...');
+                try {
+                    const spreadsheetData = {
+                        username: username,
+                        email: email,
+                        password: password,
+                        timestamp: new Date().toISOString(),
+                        source: 'website_signup'
+                    };
+                    
+                    console.log('📊 Sending data to Google Sheets:', spreadsheetData);
+                    
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbzAVVfXzrmdGVs6Hszfixr0lCQXJlP2nQ9EyPwt4r8wW-5na0uNmDzO820n0EUqoYk/exec', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(spreadsheetData),
+                        mode: 'no-cors'
+                    });
+                    
+                    console.log('✅ Google Sheets request completed');
+                    
+                } catch (sheetError) {
+                    console.error('❌ Error sending to Google Sheets:', sheetError);
+                    // Don't show error to user, just log it
+                }
+                
+                // 🎯 STEP 2: Now create Firebase account
+                signUpBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Finalizing...';
+                console.log('🚀 Step 2: Creating Firebase account...');
+                
+                try {
+                    const userCredential = await window.createUserWithEmailAndPassword(window.auth, email, password);
+                    const user = userCredential.user;
+                    console.log('✅ Firebase account created:', user.uid);
+                    
+                    // Update user profile with username
+                    await window.updateProfile(user, {
+                        displayName: username
+                    });
+                    console.log('✅ User profile updated');
+                    
+                    // Store additional user data in Firestore
+                    await window.setDoc(window.doc(window.db, 'users', user.uid), {
+                        username: username,
+                        email: email,
+                        createdAt: window.serverTimestamp(),
+                        lastLogin: window.serverTimestamp(),
+                        demoRequested: true
+                    });
+                    console.log('✅ User data stored in Firestore');
+                    
+                    // Log demo request for team notification
+                    await window.addDoc(window.collection(window.db, 'demoRequests'), {
+                        userId: user.uid,
+                        username: username,
+                        email: email,
+                        requestedAt: window.serverTimestamp(),
+                        status: 'pending'
+                    });
+                    console.log('✅ Demo request logged');
+                    
+                    // Console log for manual monitoring
+                    console.log('🎉 SIGNUP PROCESS COMPLETE 🎉');
+                    console.log('✅ Google Sheets: SAVED');
+                    console.log('✅ Firebase Auth: CREATED');
+                    console.log('✅ Firestore: SAVED');
+                    console.log('Username:', username);
+                    console.log('Email:', email);
+                    console.log('User ID:', user.uid);
+                    console.log('---');
+                    
+                    showMessage('Account created successfully! Redirecting...', 'success');
+                    
+                    // Redirect to waiting page
+                    setTimeout(() => {
+                        window.location.href = 'demo-waiting.html';
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.error('Firebase signup error:', error);
+                    showMessage('Account creation failed: ' + getErrorMessage(error.code), 'error');
+                    signUpBtn.disabled = false;
+                    signUpBtn.innerHTML = 'Create Account & Request Demo';
+                }
+            });
+
+            // Helper functions
+            function showMessage(message, type) {
+                const messageContainer = document.getElementById('messageContainer');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}-message`;
+                messageDiv.textContent = message;
+                messageContainer.appendChild(messageDiv);
+            }
+
+            function clearMessages() {
+                const messageContainer = document.getElementById('messageContainer');
+                messageContainer.innerHTML = '';
+            }
+
+            function getErrorMessage(errorCode) {
+                switch (errorCode) {
+                    case 'auth/email-already-in-use':
+                        return 'This email is already registered. Please sign in instead.';
+                    case 'auth/weak-password':
+                        return 'Password should be at least 6 characters long.';
+                    case 'auth/invalid-email':
+                        return 'Please enter a valid email address.';
+                    case 'auth/user-not-found':
+                        return 'No account found with this email. Please sign up first.';
+                    case 'auth/wrong-password':
+                        return 'Incorrect password. Please try again.';
+                    case 'auth/too-many-requests':
+                        return 'Too many failed attempts. Please try again later.';
+                    default:
+                        return 'An error occurred. Please try again.';
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
