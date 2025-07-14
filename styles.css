@@ -169,11 +169,12 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 3rem;
 }
 
 .logo {
@@ -213,6 +214,7 @@ nav {
 .nav-buttons {
     display: flex;
     gap: 0.75rem;
+    margin-left: auto;
 }
 
 /* Hero Section */
