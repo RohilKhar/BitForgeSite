@@ -132,7 +132,7 @@
             transition: max-height 0.5s ease-out;
         }
         .setup-steps.open {
-            max-height: 2000px;
+            max-height: 2500px;
             margin-bottom: 2rem;
         }
         .step-card {
@@ -401,6 +401,35 @@ alias cpp="g++"</code>
                                 <div class="note-item">→ Adds shortcuts: 'v' for verilator, 'm' for make, 'cpp' for g++</div>
                             </div>
                         </div>
+
+                        <div class="step-card">
+                            <div class="step-number">Step 5</div>
+                            <div class="step-header">
+                                <div class="step-title">Handle Windows Security Warning</div>
+                                <div class="terminal-label">Windows Security</div>
+                            </div>
+                            <div style="padding: 1rem 1.5rem;">
+                                <div style="text-align: center; margin-bottom: 1.5rem;">
+                                    <img src="assets/windowsfix.png" alt="Windows Defender SmartScreen Warning" style="max-width: 350px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                                </div>
+                                <div style="background: #1a1a2e; border: 2px solid #FFD700; padding: 1.5rem; border-radius: 8px; margin: 0 auto 1.5rem auto; max-width: 600px;">
+                                    <p style="margin: 0 0 1rem 0; color: #FFD700; font-size: 1.1rem; font-weight: bold; text-align: center;">
+                                        ⚠️ When you see this Windows security warning:
+                                    </p>
+                                    <ol style="margin: 0; padding-left: 1.5rem; color: #ffffff; font-size: 1rem; line-height: 1.8;">
+                                        <li style="margin-bottom: 0.5rem;">Click the <strong style="color: #FFD700;">"More info"</strong> link (the blue underlined text)</li>
+                                        <li style="margin-bottom: 0.5rem;">A new button <strong style="color: #FFD700;">"Run anyway"</strong> will appear</li>
+                                        <li style="margin-bottom: 0;">Click <strong style="color: #FFD700;">"Run anyway"</strong> to install SigmanticAI</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="step-notes">
+                                <div class="note-item">→ This security warning is normal for new applications not yet recognized by Microsoft</div>
+                                <div class="note-item">→ Following the steps above will safely install SigmanticAI</div>
+                            </div>
+                        </div>
+
+
                     </div>
                     
                     <div class="section-header" onclick="toggleSetup('macos')">
