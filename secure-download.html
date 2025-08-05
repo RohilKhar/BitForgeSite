@@ -141,30 +141,28 @@
             overflow: visible;
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
-            margin-top: 1rem;
-            margin-left: 1rem;
+            margin-bottom: 1rem;
         }
         .step-number {
             position: absolute;
-            top: 1rem;
-            left: -1.5rem;
-            background: #007bff;
+            top: 0;
+            left: 0;
+            background: #2D8CFF;
             color: white;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 3.5rem;
+            height: 3.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            font-size: 0.9rem;
+            border-radius: 12px 0 12px 0;
+            font-size: 1rem;
             font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             z-index: 1;
         }
         .step-header {
             background: rgba(40, 40, 50, 0.6);
             padding: 1.5rem;
-            padding-left: 2rem;
+            padding-left: 4.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -296,11 +294,20 @@
                 </ul>
             </div>
 
+            <div class="disclaimer" style="margin: 2rem 0; padding: 1rem; background: rgba(45, 140, 255, 0.1); border-left: 4px solid #2D8CFF; border-radius: 4px;">
+                <p style="margin: 0; color: #fff; font-size: 1rem;">
+                    <strong>⚠️ Important:</strong> The setup instructions below are required for SigmanticAI to function properly. Please complete all steps for your platform before running the application.
+                </p>
+            </div>
+
             <div class="setup-instructions">
                 <h3>Setup Instructions</h3>
                 <div class="setup-section">
                     <div class="section-header" onclick="toggleSetup('windows')">
-                        <div class="section-title">🚀 Windows Setup</div>
+                        <div class="section-title">
+                            <i class="fab fa-windows" style="margin-right: 0.5rem;"></i>
+                            Windows Setup
+                        </div>
                         <span class="toggle-icon" id="windows-icon">▼</span>
                     </div>
                     <div class="setup-steps" id="windows-content">
@@ -327,7 +334,10 @@
                                 <div class="terminal-label">WSL Terminal</div>
                             </div>
                             <div class="terminal-block">
-                                <code>sudo apt update && sudo apt install -y build-essential verilator</code>
+                                <code>sudo apt update && sudo apt install -y build-essential verilator autoconf gperf make gcc g++ bison flex</code>
+                            </div>
+                            <div class="step-notes">
+                                <div class="note-item">→ Installs Verilator and all required build tools</div>
                             </div>
                         </div>
 
@@ -391,7 +401,10 @@ alias cpp="g++"</code>
                     </div>
                     
                     <div class="section-header" onclick="toggleSetup('macos')">
-                        <div class="section-title">🍎 macOS Setup</div>
+                        <div class="section-title">
+                            <i class="fab fa-apple" style="margin-right: 0.5rem;"></i>
+                            macOS Setup
+                        </div>
                         <span class="toggle-icon" id="macos-icon">▼</span>
                     </div>
                     <div class="setup-steps" id="macos-content">
@@ -425,6 +438,25 @@ alias cpp="g++"</code>
                             </div>
                             <div class="terminal-block">
                                 <code>verilator --version</code>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">Step 4</div>
+                            <div class="step-header">
+                                <div class="step-title">Setup SigmanticAI Editor</div>
+                                <div class="terminal-label">Terminal</div>
+                            </div>
+                            <div class="terminal-block">
+                                <code>cd ~/Downloads
+unzip "SigmanticAI Editor.app.zip"</code>
+                            </div>
+                            <div class="terminal-block">
+                                <code>xattr -rd com.apple.quarantine "SigmanticAI Editor.app"</code>
+                            </div>
+                            <div class="step-notes">
+                                <div class="note-item">→ Unzips the downloaded app file</div>
+                                <div class="note-item">→ You can now move the app to your Applications folder</div>
                             </div>
                         </div>
                     </div>
