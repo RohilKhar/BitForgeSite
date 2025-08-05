@@ -292,16 +292,47 @@
                     <li>4GB free disk space</li>
                     <li>Verilator (required for HDL simulation)</li>
                 </ul>
+                <p style="margin: 1rem 0 0 0; color: #FFD700; font-size: 0.95rem;">
+                    <strong>⚠️ Important:</strong> The setup instructions below are required for SigmanticAI to function properly.
+                </p>
             </div>
 
-            <div class="disclaimer" style="margin: 2rem 0; padding: 1rem; background: rgba(45, 140, 255, 0.1); border-left: 4px solid #2D8CFF; border-radius: 4px;">
-                <p style="margin: 0; color: #fff; font-size: 1rem;">
-                    <strong>⚠️ Important:</strong> The setup instructions below are required for SigmanticAI to function properly. Please complete all steps for your platform before running the application.
-                </p>
-                <p style="margin: 0.5rem 0 0 0; color: #ccc; font-size: 0.9rem;">
-                    <strong>Download note:</strong> Files are served from GitHub releases for reliable downloads. The Windows installer is approximately 471MB.
-                </p>
+            <div style="margin: 2.5rem 0; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div style="background: linear-gradient(180deg, rgba(45, 140, 255, 0.1) 0%, rgba(30, 30, 40, 0.8) 100%); border: 1px solid rgba(45, 140, 255, 0.2); border-radius: 12px; overflow: hidden;">
+                    <div style="background: rgba(20, 20, 30, 0.95); padding: 1rem 1.5rem; border-bottom: 1px solid rgba(45, 140, 255, 0.2);">
+                        <h3 style="margin: 0; color: #fff; display: flex; align-items: center; gap: 0.75rem; font-size: 1.1rem;">
+                            <i class="fas fa-bug" style="color: #2D8CFF;"></i>
+                            Known Issues & Solutions
+                            <span style="margin-left: auto; background: rgba(45, 140, 255, 0.1); color: #2D8CFF; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: normal;">
+                                Last Updated: May 2024
+                            </span>
+                        </h3>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <div style="background: rgba(20, 20, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; overflow: hidden;">
+                            <div style="padding: 1rem 1.2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 0.75rem;">
+                                <span style="background: rgba(255, 59, 48, 0.1); color: #FF3B30; padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.9rem; font-weight: 500;">Initial Command Error</span>
+                                <span style="background: rgba(255, 215, 0, 0.1); color: #FFD700; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">Being Fixed</span>
+                            </div>
+                            <div style="padding: 1.2rem;">
+                                <p style="margin: 0 0 1rem 0; color: #fff; font-size: 0.95rem;">
+                                    The first command in the chat interface may appear to stall, freeze, or show a "SIGPIPE error". This is a known initialization issue that only affects the first command.
+                                </p>
+                                <div style="background: rgba(45, 140, 255, 0.05); border: 1px solid rgba(45, 140, 255, 0.2); border-radius: 6px; padding: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                        <i class="fas fa-lightbulb" style="color: #2D8CFF;"></i>
+                                        <span style="color: #2D8CFF; font-weight: 500;">Solution</span>
+                                    </div>
+                                    <p style="margin: 0; color: #ccc; font-size: 0.9rem; line-height: 1.4;">
+                                        Stop the request and retry the same command. Subsequent commands will work normally.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             <div class="setup-instructions">
                 <h3>Setup Instructions</h3>
