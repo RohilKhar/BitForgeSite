@@ -583,6 +583,8 @@ nav {
     margin-bottom: 1rem;
 }
 
+
+
 .section-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
@@ -591,6 +593,77 @@ nav {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.engagement-visual {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.engagement-visual img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.engagement-cta-simple {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.cta-highlight {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.cta-special {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(162, 89, 255, 0.3);
+    animation: ctaPulse 3s ease-in-out infinite;
+}
+
+.cta-special::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 2s ease-in-out infinite;
+}
+
+.cta-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { 
+        box-shadow: 0 8px 32px rgba(162, 89, 255, 0.3);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 12px 40px rgba(162, 89, 255, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
 }
 
 .pricing-grid {
@@ -1549,6 +1622,105 @@ footer::before {
     color: white;
 }
 
+/* ==========================
+   Cursor for HDL (scoped)
+   ========================== */
+#cursor-tool {
+    padding: 4rem 0;
+    background: var(--bg-color);
+}
+
+#cursor-tool h2 {
+    background: linear-gradient(180deg, #a259ff 0%, #7c2ae8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 2.25rem;
+}
+
+.cursor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+.cursor-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cursor-feature {
+    display: flex;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    align-items: flex-start;
+}
+
+.cursor-feature h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+}
+
+.cursor-feature p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.cursor-feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(162, 89, 255, 0.15);
+    color: var(--primary-color);
+    flex: 0 0 auto;
+    font-size: 1.05rem;
+}
+
+.cursor-demo {
+    display: flex;
+    justify-content: center;
+}
+
+.demo-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.demo-container img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+@media (max-width: 900px) {
+    .cursor-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .cursor-content {
+        order: 1;
+    }
+    .cursor-demo {
+        order: 2;
+    }
+}
+
 @media (max-width: 1024px) {
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1827,6 +1999,11 @@ footer::before {
 #backed-by h2 {
     margin-bottom: 2rem;
     font-size: 1.75rem;
+    background: linear-gradient(180deg, #ffffff 0%, #9ca3af 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
 }
 
 .partner-logos {
